@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Promotions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Min total price</th>
+      <th>Discount rate</th>
+      <th>Includes discount item</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @promotions.each do |promotion| %>
+      <tr>
+        <td><%= promotion.code %></td>
+        <td><%= promotion.min_total_price %></td>
+        <td><%= promotion.discount_rate %></td>
+        <td><%= promotion.includes_discount_item %></td>
+        <td><%= link_to 'Show', promotion %></td>
+        <td><%= link_to 'Edit', edit_promotion_path(promotion) %></td>
+        <td><%= link_to 'Destroy', promotion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Promotion', new_promotion_path %>

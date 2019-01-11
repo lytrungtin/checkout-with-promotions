@@ -1,0 +1,37 @@
+<%= form_with(model: promotion, local: true) do |form| %>
+  <% if promotion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(promotion.errors.count, "error") %> prohibited this promotion from being saved:</h2>
+
+      <ul>
+      <% promotion.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :code %>
+    <%= form.text_field :code, id: :promotion_code %>
+  </div>
+
+  <div class="field">
+    <%= form.label :min_total_price %>
+    <%= form.text_field :min_total_price, id: :promotion_min_total_price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :discount_rate %>
+    <%= form.number_field :discount_rate, id: :promotion_discount_rate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :includes_discount_item %>
+    <%= form.check_box :includes_discount_item, id: :promotion_includes_discount_item %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

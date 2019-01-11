@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @promotion.code %>
+</p>
+
+<p>
+  <strong>Min total price:</strong>
+  <%= @promotion.min_total_price %>
+</p>
+
+<p>
+  <strong>Discount rate:</strong>
+  <%= @promotion.discount_rate %>
+</p>
+
+<p>
+  <strong>Includes discount item:</strong>
+  <%= @promotion.includes_discount_item %>
+</p>
+
+<%= link_to 'Edit', edit_promotion_path(@promotion) %> |
+<%= link_to 'Back', promotions_path %>
