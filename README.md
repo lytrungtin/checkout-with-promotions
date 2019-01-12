@@ -1,11 +1,14 @@
 # Checkout Products within Promotion
 
 Our client is an online marketplace; here is a sample of some of the products available on the site:
+
+```bash
 Product code  | Name                   | Price
 ----------------------------------------------------------
 001           | Lavender heart         | £9.25
 002           | Personalised cufflinks | £45.00
 003           | Kids T-shirt           | £19.95
+```
 
 This is just an example of products, your system should be ready to accept any kind of product.
 Our marketing team wants to offer promotions as an incentive for our customers to purchase these items.
@@ -22,6 +25,7 @@ This project will implement a checkout system that fulfils these requirements. P
 
 Test data
 ---------
+```bash
 Basket: 001,002,003
 Total price expected: £66.78
 
@@ -30,7 +34,7 @@ Total price expected: £36.95
 
 Basket: 001,002,001,003
 Total price expected: £73.76 
-
+```
 
 ## Getting Started
 
