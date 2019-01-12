@@ -22,8 +22,6 @@ co.scan(item)
 price = co.total
 ```
 
-This project will implement a checkout system that fulfils these requirements. Please do this outside of any frameworks, as we are looking for you to demonstrate your knowledge of TDD.
-
 Test data
 ---------
 ```bash
