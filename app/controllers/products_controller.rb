@@ -1,6 +1,5 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-  before_action :set_promotion, :set_checkout_products, only: [:scan]
 
   # GET /products
   # GET /products.json
@@ -59,19 +58,6 @@ class ProductsController < ApplicationController
       format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
       format.json { head :no_content }
     end
-  end
-
-  # GET /products/1,2,3/1/scan
-  def scan
-    co = CheckoutService.new(@promotional_rules)
-    basket = ''
-    @checkout_product_ids.each do |product_id|
-      product = @products.find(product_id)
-      co.scan(product)
-      basket += product.product_code.to_s + " "
-    end
-    price = co.total
-    render html: "Basket: " + basket + ". Checkout total is: " + "£" + price.to_s
   end
 
   private
