@@ -17,7 +17,7 @@ class PromotionsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create promotion" do
     assert_difference('Promotion.count') do
-      post promotions_url, params: { promotion: { code: @promotion.code, discount_rate: @promotion.discount_rate, includes_discount_item: @promotion.includes_discount_item, min_total_price: @promotion.min_total_price } }
+      post promotions_url, params: { promotion: { code: 'KM3', discount_rate: @promotion.discount_rate, includes_discount_item: @promotion.includes_discount_item, min_total_price: @promotion.min_total_price } }
     end
 
     assert_redirected_to promotion_url(Promotion.last)

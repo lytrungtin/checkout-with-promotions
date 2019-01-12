@@ -1,14 +1,14 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  product_code: MyString
+  product_code: 001
   name: MyString
   price: 9.99
   quantity_discount: 1
   price_discount: 9.99
 
 two:
-  product_code: MyString
+  product_code: 002
   name: MyString
   price: 9.99
   quantity_discount: 1

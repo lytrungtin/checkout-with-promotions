@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_promotion, :set_checkout_products, only: [:scan]
 
   # GET /products
   # GET /products.json
@@ -25,7 +26,6 @@ class ProductsController < ApplicationController
   # POST /products.json
   def create
     @product = Product.new(product_params)
-
     respond_to do |format|
       if @product.save
         format.html { redirect_to @product, notice: 'Product was successfully created.' }
@@ -61,10 +61,33 @@ class ProductsController < ApplicationController
     end
   end
 
+  # GET /products/1,2,3/1/scan
+  def scan
+    co = CheckoutService.new(@promotional_rules)
+    basket = ''
+    @checkout_product_ids.each do |product_id|
+      product = @products.find(product_id)
+      co.scan(product)
+      basket += product.product_code.to_s + " "
+    end
+    price = co.total
+    render html: "Basket: " + basket + ". Checkout total is: " + "£" + price.to_s
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_product
       @product = Product.find(params[:id])
+    end
+
+    def set_promotion
+      @promotional_rules = Promotion.find(params[:promotion_id])
+    end
+
+    def set_checkout_products
+      ids = params[:product_ids].split(',')
+      @checkout_product_ids = ids
+      @products = Product.where(:id => ids)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -8,6 +8,7 @@ Bundler.require(*Rails.groups)
 
 module LogivanBackendTest
   class Application < Rails::Application
+  	config.autoload_paths += %W(#{config.root}/app/services)
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
 

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
   resources :promotions
   resources :products
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get '/products/:product_ids/:promotion_id/scan', to: 'products#scan'
 end

@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  code: MyString
+  code: KM1
   min_total_price: 9.99
   discount_rate: 1
   includes_discount_item: false
 
 two:
-  code: MyString
+  code: KM2
   min_total_price: 9.99
   discount_rate: 1
   includes_discount_item: false
