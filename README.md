@@ -15,11 +15,12 @@ Our marketing team wants to offer promotions as an incentive for our customers t
 If you spend over £60, then you get 10% off of your purchase. If you buy 2 or more lavender hearts then the price drops to £8.50.
 Our check-out can scan items in any order, and because our promotions will change, it needs to be flexible regarding our promotional rules.
 The interface to our checkout looks like this (shown in Ruby):
+```bash
 co = Checkout.new(promotional_rules)
 co.scan(item)
 co.scan(item)
 price = co.total
-
+```
 
 This project will implement a checkout system that fulfils these requirements. Please do this outside of any frameworks, as we are looking for you to demonstrate your knowledge of TDD.
 
