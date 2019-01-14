@@ -41,7 +41,6 @@ Get the code. Clone this git repository and check out the latest release:
 ```bash
 git clone https://github.com/trungtinhandsome/logivan_backend_test
 cd logivan_backend_test
-git checkout latest
 ```    
 
 ### Prerequisites
