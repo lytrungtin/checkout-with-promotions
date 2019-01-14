@@ -5,8 +5,8 @@ class CheckoutController < ApplicationController
   def index
     co = CheckoutService.new(@promotional_rules)
     basket = ''
-    @checkout_product_ids.each do |product_id|
-      product = @products.find(product_id)
+    @checkout_product_codes.each do |product_code|
+      product = @products.find_by(product_code: product_code)
       co.scan(product)
       basket += product.product_code.to_s + " "
     end
@@ -17,12 +17,12 @@ class CheckoutController < ApplicationController
   private
 
   def set_promotion
-    @promotional_rules = Promotion.find(params[:promotion_id])
+    @promotional_rules = Promotion.find_by(code: params[:promotion_code])
   end
 
   def set_checkout_products
-    ids = params[:product_ids].split(',')
-    @checkout_product_ids = ids
-    @products = Product.where(:id => ids)
+    product_codes = params[:product_codes].split(',')
+    @checkout_product_codes = product_codes
+    @products = Product.where(:product_code => product_codes)
   end
 end

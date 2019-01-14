@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
   resources :promotions
   resources :products
-  get '/checkout/:product_ids/:promotion_id', to: 'checkout#index'
+  get '/checkout/:product_codes/:promotion_code', to: 'checkout#index'
 end

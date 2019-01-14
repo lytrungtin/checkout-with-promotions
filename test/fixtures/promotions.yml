@@ -2,9 +2,9 @@
 
 one:
   code: KM1
-  min_total_price: 9.99
-  discount_rate: 1
-  includes_discount_item: false
+  min_total_price: 60
+  discount_rate: 10
+  includes_discount_item: true
 
 two:
   code: KM2

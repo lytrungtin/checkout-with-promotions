@@ -69,6 +69,81 @@ gem install rails -v 5.1.6
     rails server
     ```
 
+## Running the automated tests
+Run this command below to run the automated tests. 
+
+```
+rails test
+```
+
+### Manual testing
+
+1/. Adding products with this link below:
+```
+http://localhost:3000/products/new
+```
+Example add for:
+```
+Product code  | Name                   | Price
+----------------------------------------------------------
+001           | Lavender heart         | £9.25
+
+```
+```
+If you buy 2 or more lavender hearts then the price drops to £8.50.
+```
+Product code = 001
+
+Name = Lavender heart
+
+Price = 9.25
+
+Quantity discount = 2
+
+Price discount = 8.5
+
+2/. Adding promotions with this link below:
+
+```
+http://localhost:3000/promotions/new
+```
+
+Example add for:
+
+```
+If you spend over £60, then you get 10% off of your purchase.
+```
+
+Code = 60DISCOUNT10
+
+Min total price = 60
+
+Discount rate = 10
+
+Check to "Includes discount item" if it merges to : 
+```
+If you buy 2 or more lavender hearts then the price drops to £8.50.
+```
+
+3/. Calculate total checkout with this link below: 
+
+Example:
+
+```
+http://localhost:3000/checkout/001,002,003/60GIAM10
+```
+
+```
+http://localhost:3000/checkout/001,003,001/60GIAM10
+```
+
+```
+http://localhost:3000/checkout/001,002,001,003/60GIAM10
+```
+
+With params has meaning: '/checkout/:product_codes/:promotion_code'
+
+
 ## Built With
 
 * [RailsTutorial](https://www.railstutorial.org/book/) - Learn Web Development with Rails.
