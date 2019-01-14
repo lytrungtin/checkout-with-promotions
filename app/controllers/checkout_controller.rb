@@ -1,8 +1,8 @@
 class CheckoutController < ApplicationController
-  before_action :set_promotion, :set_checkout_products, only: [:scan]
+  before_action :set_promotion, :set_checkout_products, only: [:index]
 
-  # GET /checkout/1,2,3/1/scan
-  def scan
+  # GET /checkout/1,2,3/1/
+  def index
     co = CheckoutService.new(@promotional_rules)
     basket = ''
     @checkout_product_ids.each do |product_id|

@@ -66,16 +66,6 @@ class ProductsController < ApplicationController
       @product = Product.find(params[:id])
     end
 
-    def set_promotion
-      @promotional_rules = Promotion.find(params[:promotion_id])
-    end
-
-    def set_checkout_products
-      ids = params[:product_ids].split(',')
-      @checkout_product_ids = ids
-      @products = Product.where(:id => ids)
-    end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
       params.require(:product).permit(:product_code, :name, :price, :quantity_discount, :price_discount)
